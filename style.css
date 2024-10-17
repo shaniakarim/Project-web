@@ -1,0 +1,66 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #E0F7FA; /* Light blue for day */
+    transition: background 0.5s;
+}
+
+body.night {
+    background: #1c1c1c; /* Dark mode for night */
+    color: white;
+}
+
+.container {
+    text-align: center;
+}
+
+.weather-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    transition: background 0.5s;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button, select {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover, select:hover {
+    background-color: #2196F3;
+    color: white;
+}
+
+#weather-info {
+    display: none;
+}
+
+#weather-icon {
+    width: 80px;
+}
+
+#temperature {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#description, #wind-speed, #message {
+    font-size: 18px;
+    margin-top: 5px;
+}

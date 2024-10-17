@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="weather-card">
+            <h1>Stockholm Weather</h1>
+            <h3>Enter a city or use Stockholm</h3>
+            <input type="text" id="city-input" placeholder="Stockholm">
+            <button id="city-input-btn">Get Weather</button>
+            
+            <div id="unit-switcher">
+                <label><input type="radio" name="unit" value="metric" checked> Celsius</label>
+                <label><input type="radio" name="unit" value="imperial"> Fahrenheit</label>
+                <label><input type="radio" name="unit" value="standard"> Kelvin</label>
+            </div>
+
+            <button id="favorite-btn">Add to Favorites</button>
+            <select id="favorites-menu">
+                <option value="">Select Favorite</option>
+            </select>
+
+            <div id="weather-info">
+                <h3 id="city-name"></h3>
+                <p id="date"></p>
+                <img id="weather-icon" src="" alt="Weather Icon">
+                <p id="temperature"></p>
+                <p id="description"></p>
+                <p id="wind-speed"></p>
+                <p id="message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
