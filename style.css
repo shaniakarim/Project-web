@@ -1,66 +1,97 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #E0F7FA; /* Light blue for day */
-    transition: background 0.5s;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.3s ease;
 }
 
-body.night {
-    background: #1c1c1c; /* Dark mode for night */
-    color: white;
+.dark-mode {
+    background-color: #2C2C2C;
+    color: #f0f0f0;
 }
 
 .container {
     text-align: center;
+    margin-top: 50px;
 }
 
 .weather-card {
     background-color: white;
-    border-radius: 15px;
     padding: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    transition: background 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"] {
+#city-input {
+    padding: 10px;
+    margin: 10px 0;
     width: 70%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    font-size: 16px;
 }
 
-button, select {
-    padding: 10px;
-    margin: 10px 0;
+#city-input-btn, #forecast-btn {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover, select:hover {
+#city-input-btn:hover, #forecast-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Dark Mode Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
     background-color: #2196F3;
-    color: white;
 }
 
-#weather-info {
-    display: none;
+input:checked + .slider:before {
+    transform: translateX(18px);
 }
 
-#weather-icon {
-    width: 80px;
+.slider.round {
+    border-radius: 34px;
 }
 
-#temperature {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-#description, #wind-speed, #message {
-    font-size: 18px;
-    margin-top: 5px;
+.slider.round:before {
+    border-radius: 50%;
 }

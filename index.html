@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+<!--inspiration is taken from "https://dev.to/iamcymentho/building-a-complete-weather-app-from-scratch-with-html-css-and-javascript-a-step-by-step-guide-30h4"-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="body">
     <div class="container">
         <div class="weather-card">
-            <h1>Stockholm Weather</h1>
-            <h3>Enter a city or use Stockholm</h3>
-            <input type="text" id="city-input" placeholder="Stockholm">
-            <button id="city-input-btn">Get Weather</button>
-            
-            <div id="unit-switcher">
-                <label><input type="radio" name="unit" value="metric" checked> Celsius</label>
-                <label><input type="radio" name="unit" value="imperial"> Fahrenheit</label>
-                <label><input type="radio" name="unit" value="standard"> Kelvin</label>
-            </div>
+            <h1>Weather App - Stockholm</h1>
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button id="city-input-btn" onclick="getWeather()">Get Weather</button>
 
-            <button id="favorite-btn">Add to Favorites</button>
-            <select id="favorites-menu">
-                <option value="">Select Favorite</option>
+            <!--from "https://stackoverflow.com/questions/5024056/how-to-pass-parameters-on-onchange-of-html-select"-->
+            <select id="temp-unit" onchange="getWeather()">
+                <option value="metric">°C</option>
+                <option value="imperial">°F</option>
+                <option value="standard">K</option>
             </select>
-
+            
+            <!-- From chatgpt -->
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                <span class="slider round"></span>
+            </label>
+            <span>Dark Mode</span>
+<!--it's from "https://dev.to/iamcymentho/building-a-complete-weather-app-from-scratch-with-html-css-and-javascript-a-step-by-step-guide-30h4"-->
             <div id="weather-info">
                 <h3 id="city-name"></h3>
                 <p id="date"></p>
-                <img id="weather-icon" src="" alt="Weather Icon">
                 <p id="temperature"></p>
                 <p id="description"></p>
                 <p id="wind-speed"></p>
-                <p id="message"></p>
+                <img id="weather-icon" alt="Weather Icon">
             </div>
+<!--from "https://www.codingnepalweb.com/build-weather-app-html-css-javascript/" and chatgpt-->
+            <button id="forecast-btn" onclick="get24HourForecast()">Get 24 Hour Forecast</button>
+            <div id="forecast-info" style="display:none;">
+                <h3>24-Hour Forecast</h3>
+                <div id="forecast"></div>
+            </div>
+
+            <!--figured it out myself, very proud-->
+            <button onclick="addFavorite('Stockholm')">Add Stockholm to Favorites</button>
+            <button onclick="addFavorite('Helsinki')">Add Helsinki to Favorites</button>
+            <h3>Your Favorite Cities:</h3>
+            <ul id="favorite-cities"></ul>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
+
 </html>
